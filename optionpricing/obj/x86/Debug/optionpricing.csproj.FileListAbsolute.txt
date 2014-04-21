@@ -1,4 +1,4 @@
-c:\users\zxh\documents\visual studio 2010\Projects\optionpricing\optionpricing\bin\Debug\optionpricing.exe
-c:\users\zxh\documents\visual studio 2010\Projects\optionpricing\optionpricing\bin\Debug\optionpricing.pdb
-c:\users\zxh\documents\visual studio 2010\Projects\optionpricing\optionpricing\obj\x86\Debug\optionpricing.exe
-c:\users\zxh\documents\visual studio 2010\Projects\optionpricing\optionpricing\obj\x86\Debug\optionpricing.pdb
+C:\Users\zxh\documents\visual studio 2010\Projects\optionpricing\optionpricing\bin\Debug\optionpricing.exe
+C:\Users\zxh\documents\visual studio 2010\Projects\optionpricing\optionpricing\bin\Debug\optionpricing.pdb
+C:\Users\zxh\documents\visual studio 2010\Projects\optionpricing\optionpricing\obj\x86\Debug\optionpricing.exe
+C:\Users\zxh\documents\visual studio 2010\Projects\optionpricing\optionpricing\obj\x86\Debug\optionpricing.pdb

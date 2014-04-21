@@ -21,28 +21,7 @@ namespace optionpricing
             this.vol = vol;
             this.optiontype = optiontype;
         }
-       /*
-        static public double n(double x)
-        { // The probability density function.
-            double A = 1.0 / Math.Sqrt(2.0 * 3.1415);
-            return A * Math.Exp(-x * x * 0.5); // Math class in C#
-        }
-        static public double N(double x)
-        { // The approximation to the cumulative normal distribution
-            double a1 = 0.4361836;
-            double a2 = -0.1201676;
-            double a3 = 0.9372980;
-            double k = 1.0 / (1.0 + (0.33267 * x));
-            if (x >= 0.0)
-            {
-                return 1.0 - n(x) * (a1 * k + (a2 * k * k) + (a3 * k * k * k));
-            }
-            else
-            {
-                return 1.0 - N(-x);
-            }
-        }
-       */
+      //option pricing methods
          public double analyticmethod()    
         {
               double d1=(Math.Log(s/k)+(r-0.5*vol*vol)*ttm)/(vol*Math.Sqrt(ttm));
@@ -52,24 +31,25 @@ namespace optionpricing
               double bsm=s*n1*optiontype-k*Math.Exp(-r*ttm)*optiontype*n2;
               return bsm;
         }
-         public double simulation()
+         public double simulation(int x)
          {
-             int x = 1000;
-             double [] st=new double[x];//stock price matrix
-             double[] op = new double[x];//option price matrix
+            //x:number of steps
+             double st;
              double payoff_sum = 0;
              double mean=0;
-             for (int i = 0; i <= st.Length-1; i++)
+             double R = (r - 0.5 * Math.Pow(vol, 2)) * ttm;
+             double SD = vol * Math.Sqrt(ttm);
+             for (int i = 0; i <= x; i++)
              {
-                 st[i] = s * Math.Exp((r - 0.5 * vol * vol) * ttm + vol * Math.Sqrt(ttm) * supportfunction.SpecialFunctions.z());
-                 op[i] = Math.Exp(-r * ttm)*Math.Max(st[i] - k, 0);
-                 payoff_sum += op[i];
-                 mean = payoff_sum / (st.Length);
+                st= s* Math.Exp(R + SD * supportfunction.SpecialFunctions.z());
+                payoff_sum += Math.Max(0.0, st - k);
              }
-             double avgP = mean ;
+             double avgP = Math.Exp(-r*ttm)*(payoff_sum/(double)x) ;
              return avgP;
          }
-   }
+       //binomial tree model
+       
+        }
 }
        
       

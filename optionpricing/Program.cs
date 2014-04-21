@@ -18,7 +18,7 @@ namespace optionpricing
                 double optiontype = 1;
                 optionpricing option=new optionpricing(s,k,ttm,r,vol,optiontype);
                 double price = option.analyticmethod();
-                double callprice = option.simulation();
+                double callprice = option.simulation(1000000);
                Console.WriteLine("{0} analytic price is :",price);
                Console.WriteLine("{0} simulation price is :",callprice);
               
